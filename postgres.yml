@@ -1,0 +1,46 @@
+version: "3.1"
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ~/src/docker_vol/postgres-db:/var/lib/postgresql
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: root
+      POSTGRES_DB: api-store-auth
+    # networks:
+    #   - postgres
+  # adminer-postgres:
+  #   image: adminer
+  #   container_name: adminer-postgres
+  #   ports:
+  #     - 8080:8080
+
+  # pgadmin:
+  #   container_name: pgadmin
+  #   image: dpage/pgadmin4
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: admin@admin.com
+  #     PGADMIN_DEFAULT_PASSWORD: admin
+  #     PGADMIN_CONFIG_SERVER_MODE: "False"
+  #   volumes:
+  #     - ~/src/docker_vol/pgadmin:/var/lib/pgadmin
+
+  #   ports:
+  #     - "${PGADMIN_PORT:-5050}:80"
+  #   networks:
+  #     - postgres
+
+# networks:
+#   postgres:
+# driver: bridge
+
+volumes:
+  postgres:
+    driver: local
+  # pgadmin:
+  #   driver: local

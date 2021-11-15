@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+ redis:
+   container_name: charter_redis
+   image: redis:6-alpine
+   ports:
+     - 6379:6379
+   volumes:
+     - charter_redis_volume:/data
+
+volumes:
+  charter_redis_volume:
+   driver: local
