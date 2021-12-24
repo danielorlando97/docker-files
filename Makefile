@@ -13,3 +13,6 @@ postgres:
 		docker-compose -f postgres.yml up -d
 adminer:
 		docker-compose -f adminer.yml up -d
+
+kafka: 
+	docker-compose -f kafka.yml up -d

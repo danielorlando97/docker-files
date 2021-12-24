@@ -1,0 +1,41 @@
+version: "3.1"
+
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:6.2.0
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    volumes:
+      - ~/src/docker_vol/zookeeper-vol/var/lib:/var/lib
+      - ~/src/docker_vol/zookeeper-vol/var/lib/zookeeper/data:/var/lib/zookeeper/data
+      - ~/src/docker_vol/zookeeper-vol/var/lib/zookeeper/log:/var/lib/zookeeper/log
+      - ~/src/docker_vol/zookeeper-vol/etc/zookeeper/secrets:/etc/zookeeper/secrets
+
+  broker:
+    image: confluentinc/cp-kafka:6.2.0
+    container_name: broker
+    ports:
+      # To learn about configuring Kafka for access across networks see
+      # https://www.confluent.io/blog/kafka-client-cannot-connect-to-broker-on-aws-on-docker-etc/
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+    volumes:
+      - ~/src/docker_vol/broker-vol/var:/var/lib/kafka/data
+      - ~/src/docker_vol/broker-vol/etc:/etc/kafka/secrets
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://broker:29092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+
+volumes:
+  zookeeper:
+    driver: local
+  broker:
+    driver: local
