@@ -1,6 +1,4 @@
-## 🐳 Collection of DockerFiles
-
----
+# 🐳 Collection of DockerFiles
 
 **Skills**: `Docker` `Dockerfile` `DockerCompose` `Makefile`
 
