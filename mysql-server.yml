@@ -10,6 +10,7 @@ services:
       - mysql:/var/lib/mysql
     environment:
       MARIADB_ROOT_PASSWORD: root
+
   # adminer:
   #   image: adminer
   #   container_name: adminer
@@ -18,3 +19,6 @@ services:
 volumes:
   mysql:
     driver: local
+# networks:
+#   default:
+#     name: sql-net

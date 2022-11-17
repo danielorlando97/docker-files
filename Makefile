@@ -16,3 +16,6 @@ adminer:
 
 kafka: 
 	docker-compose -f kafka.yml up -d
+
+jenk: 
+	docker-compose -f jenkins.yml up -d

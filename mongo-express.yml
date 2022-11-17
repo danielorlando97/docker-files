@@ -7,12 +7,28 @@ services:
     container_name: mongodb
     ports:
       - 27017:27017
+      - 27018:27018
+      - 27019:27019
     # environment:
     #   - MONGO_INITDB_ROOT_USERNAME=rootuser
     #   - MONGO_INITDB_ROOT_PASSWORD=rootpass
     volumes:
       - mongodb-data
 
+  # mongo4:
+  #   image: mongo:4.4
+  #   container_name: mongo4
+  #   ports:
+  #     - 27018:27017
+  #   # environment:
+  #   #   - MONGO_INITDB_ROOT_USERNAME=rootuser
+  #   #   - MONGO_INITDB_ROOT_PASSWORD=rootpass
+  #   volumes:
+  #     - mongodb-data
+
 volumes:
   mongodb-data:
     driver: local
+# networks:
+#   default:
+#     name: mongo-net
