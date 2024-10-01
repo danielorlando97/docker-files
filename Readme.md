@@ -1,55 +1,5 @@
-## 🐳 Collection of DockerFiles
+# docker-files 🐳
+This mono repo has a collection of docker-compose. This collection is the list of technology that I used when I worked as Backend Developer
 
----
-
-**Skills**: `Docker` `Dockerfile` `DockerCompose` `Makefile`
-
-### Motivation
-
-This repo arises from the need to collect the basic configurations of the multiple infrastructures
-I have worked with in order to reuse them easily. I always prefer to use dockerized infrastructures,
-for me they are easier to operate and configure.
-
-### Tool List
-
-- [mariadb]()
-
-  ```bash
-  make mysql
-  ```
-
-- [mongodb]()
-
-  ```bash
-  make mongo
-  ```
-
-- [redis]()
-
-  ```bash
-  make redis
-  ```
-
-- [postgres]()
-
-  ```bash
-  make postgres
-  ```
-
-- [elasticsearch stack]()
-
-  ```bash
-  make elastic
-  ```
-
-- [jenkins]()
-
-  ```bash
-  make jenkins
-  ```
-
-- [kafka]()
-
-  ```bash
-  make kafka
-  ```
+# Makefile 💻
+The Makefile has all command to run each one docker-compose
