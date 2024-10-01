@@ -12,8 +12,8 @@ services:
     # environment:
     #   - MONGO_INITDB_ROOT_USERNAME=rootuser
     #   - MONGO_INITDB_ROOT_PASSWORD=rootpass
-    volumes:
-      - mongodb-data
+    # volumes:
+    #   - mongodb-data
 
   # mongo4:
   #   image: mongo:4.4
@@ -25,10 +25,9 @@ services:
   #   #   - MONGO_INITDB_ROOT_PASSWORD=rootpass
   #   volumes:
   #     - mongodb-data
-
-volumes:
-  mongodb-data:
-    driver: local
+# volumes:
+#   mongodb-data:
+#     driver: local
 # networks:
 #   default:
 #     name: mongo-net
